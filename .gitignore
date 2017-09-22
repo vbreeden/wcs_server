@@ -82,6 +82,9 @@ celerybeat-schedule
 # dotenv
 .env
 
+# dotini
+.ini
+
 # virtualenv
 .venv
 venv/
@@ -102,3 +105,6 @@ ENV/
 
 # pycharm
 .idea/
+
+# sqlite
+*.sqlite*
