@@ -23,7 +23,7 @@ router.register(r'djcalendar', views.DjCalendarViewSet, base_name='djcalendar')
 
 urlpatterns = [
     url(r'^', include('whatiswcs.urls')),  # The WhatIsWCS app should house the main landing page
-    url(r'^whatiswcs/', include('whatiswcs.urls')), # Just in case someoene tries to navigate here
+    url(r'^whatiswcs/', include('whatiswcs.urls')),  # Just in case someoene tries to navigate here
     url(r'^djcalendar/', include('djcalendar.urls')),
     url(r'^danceontime/', include('danceontime.urls')),
     url(r'^audioparser/', include('audioparser.urls')),
