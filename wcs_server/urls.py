@@ -28,6 +28,6 @@ urlpatterns = [
     url(r'^danceontime/', include('danceontime.urls')),
     url(r'^audioparser/', include('audioparser.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'rest/', include(router.urls)),
+    url(r'api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
