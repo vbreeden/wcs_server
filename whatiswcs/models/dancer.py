@@ -59,6 +59,7 @@ class Dancer(models.Model):
                                         default=MONTHS)
     age = models.IntegerField()
     dj = models.BooleanField()
+    teacher = models.BooleanField(default=False)
     other_dances = models.BooleanField()
     region = CountryField()
 
