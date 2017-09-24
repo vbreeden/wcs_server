@@ -3,19 +3,19 @@ from django_countries.fields import CountryField
 
 # Dancers may primarily lead, follow, or regularly dance both roles
 PRIMARY_DANCE_ROLE_CHOICES = (
-    ('lead', 'LEAD'),
-    ('follow', 'FOLLOW'),
-    ('both', 'BOTH')
+    ('LEAD', 'lead'),
+    ('FOLLOW', 'follow'),
+    ('BOTH', 'both')
 )
 
 # Possible JnJ Competitive Levels + Social Only
 COMP_LEVEL_CHOICES = (
-    ('social only', 'SOCIAL'),
-    ('newcomer', 'NEWCOMER'),
-    ('novice', 'NOVICE'),
-    ('intermediate', 'INTERMEDIATE'),
-    ('advanced', 'ADVANCED'),
-    ('allstar', 'ALLSTAR')
+    ('SOCIAL', 'Social Only'),
+    ('NEWCOMER', 'Newcomer'),
+    ('NOVICE', 'Novice'),
+    ('INTERMEDIATE', 'Intermediate'),
+    ('ADVANCED', 'Advanced'),
+    ('ALLSTAR', 'Allstar')
 )
 
 # Years Dancing
@@ -49,11 +49,11 @@ class Dancer(models.Model):
     primary_dance_role = models.CharField(
         max_length=6,
         choices=PRIMARY_DANCE_ROLE_CHOICES,
-        default='lead')
+        default='LEAD')
     competitive_level = models.CharField(
         max_length=12,
         choices=COMP_LEVEL_CHOICES,
-        default='social only'
+        default='SOCIAL'
     )
     years_dancing = models.IntegerField(choices=YEARS_DANCING_CHOICES,
                                         default=MONTHS)
@@ -64,7 +64,7 @@ class Dancer(models.Model):
     region = CountryField()
 
 
-class OtherDances(models.Model):
+class OtherDance(models.Model):
     """This will house the other dances that a dancer may with to report.
     Currently on the list:
         American Slow Waltz
@@ -81,19 +81,22 @@ class OtherDances(models.Model):
         Nightclub Two Step
         Quickstep
         Rumba
+        Samba
         Salsa
         Tango
         Viennese Waltz
         Zouk
+        Other
     """
     name = models.CharField(max_length=64)
 
     """This created the one-dancer-to-many-dances relationship we need.
     """
-    dancer = models.ForeignKey(Dancer)
+    dancer = models.ForeignKey(Dancer, blank=True, null=True)
 
-    """ I do not claim to know all of the possible partner dances so this field
-    will capture any other dances a dancer may with to report.
-    """
-    other = models.TextField()
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return self.name
 

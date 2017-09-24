@@ -94,6 +94,10 @@ DATABASES = {
     }
 }
 
+# Fixture Data for the Database
+FIXTURE_DIRS = (
+    os.path.join(BASE_DIR, 'whatiswcs/fixtures/')
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
