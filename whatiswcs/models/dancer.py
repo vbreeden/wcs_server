@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator
 from django_countries.fields import CountryField
 
 # Dancers may primarily lead, follow, or regularly dance both roles
@@ -31,17 +32,17 @@ EIGHT = 8
 NINE = 9
 TEN = 10  # 10+
 YEARS_DANCING_CHOICES = (
-    ('MONTHS', '< 1'),
-    ('ONE', '1'),
-    ('TWO', '2'),
-    ('THREE', '3'),
-    ('FOUR', '4'),
-    ('FIVE', '5'),
-    ('SIX', '6'),
-    ('SEVEN', '7'),
-    ('EIGHT', '8'),
-    ('NINE', '9'),
-    ('TEN', '10+')
+    (MONTHS, '< 1'),
+    (ONE, '1'),
+    (TWO, '2'),
+    (THREE, '3'),
+    (FOUR, '4'),
+    (FIVE, '5'),
+    (SIX, '6'),
+    (SEVEN, '7'),
+    (EIGHT, '8'),
+    (NINE, '9'),
+    (TEN, '10+')
 )
 
 
@@ -57,11 +58,19 @@ class Dancer(models.Model):
     )
     years_dancing = models.IntegerField(choices=YEARS_DANCING_CHOICES,
                                         default=MONTHS)
-    age = models.IntegerField()
+    age = models.PositiveIntegerField(validators=[MinValueValidator(6)])
     dj = models.BooleanField()
     teacher = models.BooleanField(default=False)
     other_dances = models.BooleanField()
     region = CountryField()
+
+    def __unicode__(self):
+        return '{0} {1}, aged {2} from {3}'.format(self.competitive_level, self.primary_dance_role,
+                                                   self.age, self.region.name)
+
+    def __str__(self):
+        return '{0} {1}, aged {2} from {3}'.format(self.competitive_level, self.primary_dance_role,
+                                                   self.age, self.region.name)
 
 
 class OtherDance(models.Model):
