@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django_countries.fields import CountryField
+from multiselectfield import MultiSelectField
+from .song import Song
 
 # Dancers may primarily lead, follow, or regularly dance both roles
 PRIMARY_DANCE_ROLE_CHOICES = (
@@ -45,6 +47,37 @@ YEARS_DANCING_CHOICES = (
     (TEN, '10+')
 )
 
+OTHER_DANCES = (
+    ('AMERICAN SLOW WALTZ', 'American Slow Waltz'),
+    ('ARGENTINE TANGO', 'Argentine Tango'),
+    ('BALBOA', 'Balboa'),
+    ('BLUES', 'Blues'),
+    ('BOLERO', 'Bolero'),
+    ('CAROLINA SHAG', 'Carolina Shag'),
+    ('CHA CHA', 'Cha Cha'),
+    ('CHARLESTON', 'Charleston'),
+    ('COLLEGIATE SHAG', 'Collegiate Shag'),
+    ('COUNTRY TWO STEP', 'Country Two Step'),
+    ('EAST COAST SWING', 'East Coast Swing'),
+    ('FOXTROT', 'Foxtrot'),
+    ('HUSTLE', 'Hustle'),
+    ('JIVE', 'Jive'),
+    ('KIZOMBA', 'Kizomba'),
+    ('LINDY HOP', 'Lindy Hop'),
+    ('MAMBO', 'Mambo'),
+    ('MERENGUE', 'Merengue'),
+    ('NIGHTCLUB TWO STEP', 'Nightclub Two Step'),
+    ('QUICKSTEP', 'Quickstep'),
+    ('RUMBA', 'Rumba'),
+    ('SAMBA', 'Samba'),
+    ('SALSA', 'Salsa'),
+    ('TANGO', 'Tango'),
+    ('TRIPLE TWO STEP', 'Triple Two Step'),
+    ('VIENNESE WALTZ', 'Viennese Waltz'),
+    ('ZOUK', 'Zouk'),
+    ('OTHER', 'Other')
+)
+
 
 class Dancer(models.Model):
     primary_dance_role = models.CharField(
@@ -62,7 +95,11 @@ class Dancer(models.Model):
     dj = models.BooleanField()
     teacher = models.BooleanField(default=False)
     other_dances = models.BooleanField()
+    other_dance_styles = MultiSelectField(choices=OTHER_DANCES, blank=True, null=True)
     region = CountryField()
+    song = models.ManyToManyField(Song, through='SongList',
+                                  through_fields=('dancer', 'song'),
+                                  blank=True, null=True)
 
     def __unicode__(self):
         return '{0} {1}, aged {2} from {3}'.format(self.competitive_level, self.primary_dance_role,
@@ -73,39 +110,6 @@ class Dancer(models.Model):
                                                    self.age, self.region.name)
 
 
-class OtherDance(models.Model):
-    """This will house the other dances that a dancer may with to report.
-    Currently on the list:
-        American Slow Waltz
-        Bolero
-        Cha Cha
-        Country Two Step
-        East Coast Swing
-        Foxtrot
-        Hustle
-        Jive
-        Kizomba
-        Mambo
-        Merengue
-        Nightclub Two Step
-        Quickstep
-        Rumba
-        Samba
-        Salsa
-        Tango
-        Viennese Waltz
-        Zouk
-        Other
-    """
-    name = models.CharField(max_length=64)
-
-    """This created the one-dancer-to-many-dances relationship we need.
-    """
-    dancer = models.ForeignKey(Dancer, blank=True, null=True)
-
-    def __unicode__(self):
-        return self.name
-
-    def __str__(self):
-        return self.name
-
+class SongList(models.Model):
+    dancer = models.ForeignKey(Dancer)
+    song = models.ForeignKey(Song)

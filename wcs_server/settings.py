@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'danceontime.apps.DanceontimeConfig',
     'audioparser.apps.AudioparserConfig',
     'rest_framework',
+    'multiselectfield',
 ]
 
 REST_FRAMEWORK = {

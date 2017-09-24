@@ -1,5 +1,4 @@
 from django.db import models
-from .dancer import Dancer
 
 
 class Song(models.Model):
@@ -7,7 +6,6 @@ class Song(models.Model):
     artist = models.CharField(max_length=128)
     features = models.TextField(blank=True, null=True)
     groove_url = models.TextField(blank=True, null=True)
-    dancer = models.ForeignKey(Dancer, blank=True, null=True)
 
     def __unicode__(self):
         return '{0} by {1}'.format(self.title, self.artist)
