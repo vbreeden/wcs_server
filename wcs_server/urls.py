@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
-from djcalendar import views
+from djcalendar import views as djviews
+from whatiswcs import views as wcviews
 
 router = routers.DefaultRouter()
-router.register(r'djcalendar', views.DjCalendarViewSet, base_name='djcalendar')
+router.register(r'djcalendar', djviews.DjCalendarViewSet, base_name='djcalendar')
+router.register(r'songs', wcviews.SongViewSet, base_name='songs')
+router.register(r'dancers', wcviews.DancerViewSet, base_name='dancers')
 
 urlpatterns = [
     url(r'^', include('whatiswcs.urls')),  # The WhatIsWCS app should house the main landing page

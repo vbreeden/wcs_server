@@ -97,9 +97,7 @@ class Dancer(models.Model):
     other_dances = models.BooleanField()
     other_dance_styles = MultiSelectField(choices=OTHER_DANCES, blank=True, null=True)
     region = CountryField()
-    song = models.ManyToManyField(Song, through='SongList',
-                                  through_fields=('dancer', 'song'),
-                                  blank=True, null=True)
+    song = models.ManyToManyField(Song, blank=True)
 
     def __unicode__(self):
         return '{0} {1}, aged {2} from {3}'.format(self.competitive_level, self.primary_dance_role,
@@ -109,7 +107,3 @@ class Dancer(models.Model):
         return '{0} {1}, aged {2} from {3}'.format(self.competitive_level, self.primary_dance_role,
                                                    self.age, self.region.name)
 
-
-class SongList(models.Model):
-    dancer = models.ForeignKey(Dancer)
-    song = models.ForeignKey(Song)

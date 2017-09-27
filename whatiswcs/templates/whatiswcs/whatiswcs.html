@@ -1,10 +1,31 @@
 {% extends "wcs_server_base.html" %}
 {% load static %}
+{% load rest_framework %}
 
 {% block extra_head_content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'whatiswcs/css/whatiswcs.css' %}" />
+
     <title>What Is WCS</title>
 {% endblock extra_head_content %}
 
 {% block content %}
+
+    <form class="form-horizontal" method="post" novalidate>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>{{ form.title.label }}</strong> {{ form.title }}
+                <strong>{{ form.artist.label }}</strong> {{ form.artist }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>{{ form.features.label }}&nbsp;</strong>{{ form.features }}
+            </div>
+        </div>
+
+    <button type="submit">Submit</button>
+    </form>
 
 {% endblock content %}

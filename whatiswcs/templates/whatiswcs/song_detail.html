@@ -1,0 +1,18 @@
+{% extends "wcs_server_base.html" %}
+{% load static %}
+{% load rest_framework %}
+
+{% block extra_head_content %}
+    <title>Submitted Songs</title>
+{% endblock extra_head_content %}
+
+{% block content %}
+    <h1>Song Submission</h1>
+
+    <form action="{% url 'song-detail' pk=song.pk %}" method="POST">
+        {% csrf_token %}
+        {% render_form serializer %}
+        <input type="submit" value="Save">
+    </form>
+    
+{% endblock content %}

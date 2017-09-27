@@ -1,0 +1,9 @@
+textarea {
+    width: 415px;
+    max-height: 150px;
+    vertical-align: top;
+}
+
+input[type="text"] {
+    width: 200px;
+}
