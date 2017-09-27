@@ -10,22 +10,84 @@
 
 {% block content %}
 
-    <form class="form-horizontal" method="post" novalidate>
+    <form class="form-horizontal" action="/api/songs/" method="POST">
         {% csrf_token %}
-        {{ form.non_field_errors }}
+        {{ song.non_field_errors }}
+{#        {% render_form serializer %}#}
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>{{ form.title.label }}</strong> {{ form.title }}
-                <strong>{{ form.artist.label }}</strong> {{ form.artist }}
+                <strong>{{ song.title.label }}</strong> {{ song.title }}
+                <strong>{{ song.artist.label }}</strong> {{ song.artist }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>{{ form.features.label }}&nbsp;</strong>{{ form.features }}
+                <strong>{{ song.features.label }}&nbsp;</strong>{{ song.features }}
             </div>
         </div>
-
-    <button type="submit">Submit</button>
+        </div>
+        <input type="submit" value="Save Song">
+    </form>
+    <br/>
+    <form class="form-horizontal" action="/api/dancers/" method="POST">
+        {% csrf_token %}
+        {{ dancer.non_field_errors }}
+{#        {% render_form serializer %}#}
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>I usually dance as a </strong>
+                {{ dancer.primary_dance_role }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>My competitive level is </strong>
+                {{ dancer.competitive_level }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>Years I've been dancing: </strong>
+                {{ dancer.years_dancing }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>My age: </strong>
+                {{ dancer.age }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>Do you DJ? </strong>
+                {{ dancer.dj }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>Do ou Teach WCS? </strong>
+                {{ dancer.teacher }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>Do you dance other dances? </strong>
+                {{ dancer.other_dances }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>What other dances do you do? </strong>
+                {{ dancer.other_dance_styles }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>Where are you from? </strong>
+                {{ dancer.region }}
+            </div>
+        </div>
+        <input type="submit" value="Save Dancer Info">
     </form>
 
 {% endblock content %}

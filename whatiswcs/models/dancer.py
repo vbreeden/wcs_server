@@ -18,7 +18,7 @@ COMP_LEVEL_CHOICES = (
     ('NOVICE', 'Novice'),
     ('INTERMEDIATE', 'Intermediate'),
     ('ADVANCED', 'Advanced'),
-    ('ALLSTAR', 'Allstar')
+    ('ALLSTAR', 'All-Star')
 )
 
 # Years Dancing

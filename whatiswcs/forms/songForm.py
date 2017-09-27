@@ -1,5 +1,4 @@
 from django import forms
-from whatiswcs.models import Song
 
 
 class SongForm(forms.Form):
@@ -10,7 +9,8 @@ class SongForm(forms.Form):
         widget=forms.Textarea(attrs={
             'placeholder': 'In your own words, what about this song makes it so danceable?'
         }),
-        label='Features'
+        label='Features',
+        required=False
     )
 
     def clean(self):
