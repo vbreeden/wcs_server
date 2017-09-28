@@ -1,11 +1,14 @@
-from rest_framework import serializers
-from .models import SongAndDancer
+from rest_framework import fields, serializers
+from .models import SongAndDancer, OTHER_DANCES
 
 
 class SongAndDancerSerializer(serializers.ModelSerializer):
+    other_dance_styles = fields.MultipleChoiceField(choices=OTHER_DANCES)
+
     class Meta:
         model = SongAndDancer
         fields = (
+            'id',
             'title',
             'artist',
             'features',

@@ -15,7 +15,7 @@ class SongAndDancerForm(ModelForm):
             'features': Textarea(attrs={
                 'placeholder': 'In your own words, what about this song makes it so danceable?',
                 'rows': 3
-            }),
+            })
         }
         labels = {
             'primary_dance_role': 'What is your usual role as a dancer? ',
