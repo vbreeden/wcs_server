@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from django_countries.fields import CountryField
 from multiselectfield import MultiSelectField
-from .song import Song
+
 
 # Dancers may primarily lead, follow, or regularly dance both roles
 PRIMARY_DANCE_ROLE_CHOICES = (
@@ -79,7 +79,17 @@ OTHER_DANCES = (
 )
 
 
-class Dancer(models.Model):
+class SongAndDancer(models.Model):
+    """
+    After a great deal of deliberation I have decided that I'm looking for each
+    participant to only provide one song. What I'm looking for is the songs that bubble
+    to the very top of danceability, not a list of 'really good songs' from each person.
+    """
+    title = models.CharField(max_length=128)
+    artist = models.CharField(max_length=128)
+    features = models.TextField(blank=True, null=True)
+    song_url = models.CharField(max_length=400, null=True)
+
     primary_dance_role = models.CharField(
         max_length=6,
         choices=PRIMARY_DANCE_ROLE_CHOICES,
@@ -91,19 +101,19 @@ class Dancer(models.Model):
     )
     years_dancing = models.IntegerField(choices=YEARS_DANCING_CHOICES,
                                         default=MONTHS)
-    age = models.PositiveIntegerField(validators=[MinValueValidator(6)])
+    age = models.PositiveIntegerField(validators=[MinValueValidator(6)],
+                                      default=18, blank=True, null=True)
     dj = models.BooleanField()
     teacher = models.BooleanField(default=False)
-    other_dances = models.BooleanField()
+    region = CountryField(blank=True, null=True)
     other_dance_styles = MultiSelectField(choices=OTHER_DANCES, blank=True, null=True)
-    region = CountryField()
-    song = models.ManyToManyField(Song, blank=True)
 
     def __unicode__(self):
-        return '{0} {1}, aged {2} from {3}'.format(self.competitive_level, self.primary_dance_role,
-                                                   self.age, self.region.name)
+        return '{0} by {1}'.format(self.title, self.artist)
 
     def __str__(self):
-        return '{0} {1}, aged {2} from {3}'.format(self.competitive_level, self.primary_dance_role,
-                                                   self.age, self.region.name)
-
+        return '{0} by {1}. Role: {2}. Level: {3}. Age: {4}'.format(self.title,
+                                                                    self.artist,
+                                                                    self.primary_dance_role,
+                                                                    self.competitive_level,
+                                                                    self.age)

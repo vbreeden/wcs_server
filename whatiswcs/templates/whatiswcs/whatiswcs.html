@@ -10,84 +10,78 @@
 
 {% block content %}
 
-    <form class="form-horizontal" action="/api/songs/" method="POST">
+    <form class="form-horizontal" action="/api/song-and-dancer/" method="POST">
         {% csrf_token %}
-        {{ song.non_field_errors }}
-{#        {% render_form serializer %}#}
+        {{ songAndDancer.non_field_errors }}
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>{{ song.title.label }}</strong> {{ song.title }}
-                <strong>{{ song.artist.label }}</strong> {{ song.artist }}
+                <strong>{{ songAndDancer.title.label }}</strong> {{ songAndDancer.title }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>{{ song.features.label }}&nbsp;</strong>{{ song.features }}
-            </div>
-        </div>
-        </div>
-        <input type="submit" value="Save Song">
-    </form>
-    <br/>
-    <form class="form-horizontal" action="/api/dancers/" method="POST">
-        {% csrf_token %}
-        {{ dancer.non_field_errors }}
-{#        {% render_form serializer %}#}
-        <div class="form-group">
-            <div class="col-lg-10">
-                <strong>I usually dance as a </strong>
-                {{ dancer.primary_dance_role }}
+                <strong>{{ songAndDancer.artist.label }}</strong>{{ songAndDancer.artist }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>My competitive level is </strong>
-                {{ dancer.competitive_level }}
+                <strong>{{ songAndDancer.song_url.label }}&nbsp;</strong>{{ songAndDancer.song_url }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>Years I've been dancing: </strong>
-                {{ dancer.years_dancing }}
+                <strong>{{ songAndDancer.features.label }}&nbsp;</strong>{{ songAndDancer.features }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>My age: </strong>
-                {{ dancer.age }}
+                <strong>{{ songAndDancer.primary_dance_role.label }} </strong>
+                {{ songAndDancer.primary_dance_role }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>Do you DJ? </strong>
-                {{ dancer.dj }}
+                <strong>{{ songAndDancer.competitive_level.label }} </strong>
+                {{ songAndDancer.competitive_level }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>Do you Teach WCS? </strong>
-                {{ dancer.teacher }}
+                <strong>{{ songAndDancer.years_dancing.label }} </strong>
+                {{ songAndDancer.years_dancing }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>Do you dance other dances? </strong>
-                {{ dancer.other_dances }}
+                <strong>{{ songAndDancer.age.label }} </strong>
+                {{ songAndDancer.age }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>What other dances do you do? </strong>
-                {{ dancer.other_dance_styles }}
+                <strong>{{ songAndDancer.dj.label }}</strong>
+                {{ songAndDancer.dj }}
             </div>
         </div>
         <div class="form-group">
             <div class="col-lg-10">
-                <strong>Where are you from? </strong>
-                {{ dancer.region }}
+                <strong>{{ songAndDancer.teacher.label }} </strong>
+                {{ songAndDancer.teacher }}
             </div>
         </div>
-        <input type="submit" value="Save Dancer Info">
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>{{ songAndDancer.region.label }} </strong>
+                {{ songAndDancer.region }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10">
+                <strong>{{ songAndDancer.other_dance_styles.label }} </strong>
+                {{ songAndDancer.other_dance_styles }}
+            </div>
+        </div>
+        <input type="submit" value="Submit, for science! And Dancing.">
     </form>
 
 {% endblock content %}

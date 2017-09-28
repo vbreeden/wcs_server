@@ -1,2 +1,1 @@
-from .dancer import *
-from .song import *
+from .SongAndDancer import *

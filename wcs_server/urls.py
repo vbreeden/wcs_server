@@ -21,8 +21,8 @@ from whatiswcs import views as wcviews
 
 router = routers.DefaultRouter()
 router.register(r'djcalendar', djviews.DjCalendarViewSet, base_name='djcalendar')
-router.register(r'songs', wcviews.SongViewSet, base_name='songs')
-router.register(r'dancers', wcviews.DancerViewSet, base_name='dancers')
+router.register(r'song-and-dancer', wcviews.SongAndDancerViewSet,
+                base_name='song-and-dancer')
 
 urlpatterns = [
     url(r'^', include('whatiswcs.urls')),  # The WhatIsWCS app should house the main landing page
