@@ -6,9 +6,9 @@ from multiselectfield import MultiSelectField
 
 # Dancers may primarily lead, follow, or regularly dance both roles
 PRIMARY_DANCE_ROLE_CHOICES = (
-    ('LEAD', 'lead'),
-    ('FOLLOW', 'follow'),
-    ('BOTH', 'both')
+    ('LEAD', 'Lead'),
+    ('FOLLOW', 'Follow'),
+    ('BOTH', 'Both')
 )
 
 # Possible JnJ Competitive Levels + Social Only
@@ -47,35 +47,45 @@ YEARS_DANCING_CHOICES = (
     (TEN, '10+')
 )
 
+# OTHER_DANCES = (
+#     ('AMERICAN SLOW WALTZ', 'American Slow Waltz'),
+#     ('ARGENTINE TANGO', 'Argentine Tango'),
+#     ('BALBOA', 'Balboa'),
+#     ('BLUES', 'Blues'),
+#     ('BOLERO', 'Bolero'),
+#     ('CAROLINA SHAG', 'Carolina Shag'),
+#     ('CHA CHA', 'Cha Cha'),
+#     ('CHARLESTON', 'Charleston'),
+#     ('COLLEGIATE SHAG', 'Collegiate Shag'),
+#     ('COUNTRY TWO STEP', 'Country Two Step'),
+#     ('EAST COAST SWING', 'East Coast Swing'),
+#     ('FOXTROT', 'Foxtrot'),
+#     ('HUSTLE', 'Hustle'),
+#     ('JIVE', 'Jive'),
+#     ('KIZOMBA', 'Kizomba'),
+#     ('LINDY HOP', 'Lindy Hop'),
+#     ('MAMBO', 'Mambo'),
+#     ('MERENGUE', 'Merengue'),
+#     ('NIGHTCLUB TWO STEP', 'Nightclub Two Step'),
+#     ('QUICKSTEP', 'Quickstep'),
+#     ('RUMBA', 'Rumba'),
+#     ('SAMBA', 'Samba'),
+#     ('SALSA', 'Salsa'),
+#     ('TANGO', 'Tango'),
+#     ('TRIPLE TWO STEP', 'Triple Two Step'),
+#     ('VIENNESE WALTZ', 'Viennese Waltz'),
+#     ('ZOUK', 'Zouk'),
+#     ('OTHER', 'Other')
+# )
+
+
 OTHER_DANCES = (
-    ('AMERICAN SLOW WALTZ', 'American Slow Waltz'),
-    ('ARGENTINE TANGO', 'Argentine Tango'),
-    ('BALBOA', 'Balboa'),
+    ('SMOOTH_BALLROOM', 'Smooth Ballroom Dances'),
+    ('RHYTHM_BALLROOM', 'Rhythm/Latin Dances'),
+    ('COUNTRY', 'Country Dances'),
     ('BLUES', 'Blues'),
-    ('BOLERO', 'Bolero'),
-    ('CAROLINA SHAG', 'Carolina Shag'),
-    ('CHA CHA', 'Cha Cha'),
-    ('CHARLESTON', 'Charleston'),
-    ('COLLEGIATE SHAG', 'Collegiate Shag'),
-    ('COUNTRY TWO STEP', 'Country Two Step'),
-    ('EAST COAST SWING', 'East Coast Swing'),
-    ('FOXTROT', 'Foxtrot'),
-    ('HUSTLE', 'Hustle'),
-    ('JIVE', 'Jive'),
-    ('KIZOMBA', 'Kizomba'),
-    ('LINDY HOP', 'Lindy Hop'),
-    ('MAMBO', 'Mambo'),
-    ('MERENGUE', 'Merengue'),
-    ('NIGHTCLUB TWO STEP', 'Nightclub Two Step'),
-    ('QUICKSTEP', 'Quickstep'),
-    ('RUMBA', 'Rumba'),
-    ('SAMBA', 'Samba'),
-    ('SALSA', 'Salsa'),
-    ('TANGO', 'Tango'),
-    ('TRIPLE TWO STEP', 'Triple Two Step'),
-    ('VIENNESE WALTZ', 'Viennese Waltz'),
-    ('ZOUK', 'Zouk'),
-    ('OTHER', 'Other')
+    ('CLUB', 'Club Dances'),
+    ('OTHER', 'Other Styles')
 )
 
 
