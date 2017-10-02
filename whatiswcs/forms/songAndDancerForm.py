@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm, Textarea, TextInput
 from ..models import SongAndDancer
+from django_countries.fields import CountryField
 
 
 class SongAndDancerForm(ModelForm):
@@ -8,6 +9,7 @@ class SongAndDancerForm(ModelForm):
         model = SongAndDancer
         fields = '__all__'
         age = forms.IntegerField(min_value=6)
+        region = CountryField(default={'country': 'US'})
         widgets = {
             'song_url': TextInput(attrs={
                 'placeholder': 'Where can I find this song?'

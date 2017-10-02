@@ -1,8 +1,9 @@
 from rest_framework import fields, serializers
+from django_countries.serializers import CountryFieldMixin
 from .models import SongAndDancer, OTHER_DANCES
 
 
-class SongAndDancerSerializer(serializers.ModelSerializer):
+class SongAndDancerSerializer(CountryFieldMixin, serializers.ModelSerializer):
     other_dance_styles = fields.MultipleChoiceField(choices=OTHER_DANCES)
 
     class Meta:

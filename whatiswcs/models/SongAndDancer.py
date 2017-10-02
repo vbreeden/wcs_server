@@ -115,7 +115,7 @@ class SongAndDancer(models.Model):
                                       default=18, blank=True, null=True)
     dj = models.BooleanField()
     teacher = models.BooleanField(default=False)
-    region = CountryField(blank=True, null=True)
+    region = CountryField(default={'country': 'US'})
     other_dance_styles = MultiSelectField(choices=OTHER_DANCES, blank=True, null=True)
 
     def __unicode__(self):

@@ -4,13 +4,15 @@
 
 {% block extra_head_content %}
     <link rel="stylesheet" type="text/css" href="{% static 'whatiswcs/css/whatiswcs.css' %}" />
+{#    <script src="{% static 'whatiswcs/javascript/whatiswcs.js' %}"></script>#}
 
     <title>What Is WCS</title>
 {% endblock extra_head_content %}
 
 {% block content %}
 <div class="well-sm col-sm-6">
-    <form class="form-inline" action="/api/song-and-dancer/" method="POST">
+    <form id="wcsForm" class="form-inline" action="/api/song-and-dancer/"
+          method="POST">
         {% csrf_token %}
         {{ songAndDancer.non_field_errors }}
         <h3>Song Information</h3>
@@ -122,7 +124,9 @@
         </div>
         <div class="row top-buffer">
             <div class="btn pull-right">
-                <input class="btn-default" type="submit" value="Submit, for science! And Dancing.">
+                <input class="btn-default"
+                       type="submit"
+                       value="Submit, for science! And Dancing.">
             </div>
         </div>
     </form>
