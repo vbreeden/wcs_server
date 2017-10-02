@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'djcalendar.apps.DjcalendarConfig',
     'danceontime.apps.DanceontimeConfig',
     'audioparser.apps.AudioparserConfig',
+    'about.apps.AboutConfig',
     'rest_framework',
     'multiselectfield',
 ]
