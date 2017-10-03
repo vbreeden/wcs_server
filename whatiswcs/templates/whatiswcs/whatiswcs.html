@@ -10,12 +10,82 @@
 {% endblock extra_head_content %}
 
 {% block content %}
-<div class="well-sm col-sm-6">
+<div class="well-sm col-sm-4">
+    <h3>FAQ</h3>
+    <div class="well well-sm col-sm-12">
+        <dl>
+            <div class="row top-buffer">
+                <div class="col-sm-12">
+                    <dt>What do you mean by "most danceable West Coast Swing?"</dt>
+                    <dd>
+                        <p>I'm looking for the song that, when you're
+                        dancing to it, Just. Works. There's no confusion, it doesn't keep you guessing what's
+                        going to happen next, and when the song is over you feel like you just had the best
+                        dance of the night.</p>
+                    </dd>
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div div class="col-sm-12">
+                    <dt>What is the Song URL?</dt>
+                    <dd>
+                        <p>This can be a link to anywhere where I can hear the song; YouTube, Spotify, iTunes,
+                            and similar places.</p>
+                    </dd>
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div div class="col-sm-12">
+                    <dt>What do I put in the 'Features' box?</dt>
+                    <dd>
+                        <p>What I'm looking for here is to know what you think makes the song such a good
+                        West Coast Swing. There are no wrong answers, and how you answer it is completely up to you.
+                        If you don't have an answer that's ok too, this field is optional.</p>
+                    </dd>
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div div class="col-sm-12">
+                    <dt>What's the reason for the Dancer Information?</dt>
+                    <dd>
+                        <p>This will help me better find patterns that could be related to dancers in a given
+                            demographic. Is there something in the music that we dance to that's easier for followers
+                            than for leads? Is there a difference in what people from Berlin will find easy to dance to
+                            versus people from San Diego? Is there something that these songs that they have in common
+                            that's unexpected? These are the types of question I will be asking when analyzing this
+                            data.</p>
+                    </dd>
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div div class="col-sm-12">
+                    <dt>Will I be able to see the songs that other people chose?</dt>
+                    <dd>
+                        <p>Eventually, but not at first. While I'm collecting data I will keep it confidential to
+                        prevent artificial trends from developing. <br><br>
+                        However! Once I've collected enough data <i>I will make the list of songs and URLs
+                        searchable.</i></p>
+                    </dd>
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div div class="col-sm-12">
+                    <dt>If you find anything interesting will you share your findings?</dt>
+                    <dd>
+                        <p>You bet! The whole purpose of this project is to learn new things about the music we dance to
+                        and to share those findings with the West Coast Swing community.</p>
+                    </dd>
+                </div>
+            </div>
+        </dl>
+    </div>
+</div>
+<div class="well-sm col-sm-4">
     <form id="wcsForm" class="form-inline" action="/api/song-and-dancer/"
           method="POST">
         {% csrf_token %}
         {{ songAndDancer.non_field_errors }}
-        <h3>Song Information</h3>
+        <h3>For you, what song is the most danceable West Coast Swing?</h3>
         <div class="well well-sm col-sm-12">
             <div class="row">
                 <div class="col-sm-2">
@@ -126,7 +196,7 @@
             <div class="btn pull-right">
                 <input class="btn-default"
                        type="submit"
-                       value="Submit, for science! And Dancing.">
+                       value="Submit (For Science! And Dancing)">
             </div>
         </div>
     </form>
