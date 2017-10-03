@@ -1,16 +1,6 @@
-input[type="text"] {
-    width: 100%;
-}
-
-input[type=number]{
-    width: 100%;
-}
-
-select{
-    width: 100%;
-}
-
-textarea {
+input,
+select,
+textarea{
     width: 100%;
 }
 
