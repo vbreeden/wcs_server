@@ -98,7 +98,7 @@ class SongAndDancer(models.Model):
     title = models.CharField(max_length=128)
     artist = models.CharField(max_length=128)
     features = models.TextField(blank=True, null=True)
-    song_url = models.CharField(max_length=400, null=True)
+    song_url = models.URLField(verbose_name='Song URL')
 
     primary_dance_role = models.CharField(
         max_length=6,
