@@ -80,8 +80,8 @@ YEARS_DANCING_CHOICES = (
 
 
 OTHER_DANCES = (
-    ('SMOOTH_BALLROOM', 'Smooth Ballroom Dances'),
-    ('RHYTHM_BALLROOM', 'Rhythm/Latin Dances'),
+    ('SMOOTH_BALLROOM', 'Smooth/Standard Ballroom'),
+    ('RHYTHM_BALLROOM', 'Rhythm/Latin Dances Ballroom'),
     ('COUNTRY', 'Country Dances'),
     ('BLUES', 'Blues'),
     ('CLUB', 'Club Dances'),
