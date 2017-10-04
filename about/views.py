@@ -1,3 +1,12 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def research(request):
+    context = {'': ''}
+    return render(request, 'about/research.html', context=context)
+
+
+def bio(request):
+    context = {'': ''}
+    return render(request, 'about/bio.html', context=context)
+

@@ -1,10 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Research</title>
-</head>
-<body>
+{% extends "wcs_server_base.html" %}
+{% load static %}
 
-</body>
-</html>
+{% block extra_head_content %}
+    <title>Research</title>
+{% endblock extra_head_content %}
+
+{% block content %}
+    <div class="well well-sm col-sm-6">
+        <dl>
+            <div class="row top-buffer">
+                <div class="col-sm-12">
+                    <dt>
+                        <h4><strong>
+                            When dancing West Coast Swing, what makes some songs more danceable than others?
+                        </strong></h4>
+                    </dt>
+                    <dd>
+                        <p>When dancing West Coast Swing, some songs seem to just work. You can feel the build-up of
+                        energy in the song, you can hear breaks approaching to the music, and you feel like you know
+                        how to shape your dance the through the entire experience. Other songs are not so giving.
+                        They are either confusing, too repetitive, have a rhythm that's hard to follow, or just
+                        don't feel right.<br>
+                        For all of those songs that just work, what features do they have in common? Is it their
+                        rhythm, does it have to do with their phrasing, or perhaps it's how the chord progressions are
+                        arranged? Is there something more subtle that these songs have in common?
+                        As far as I am aware this question hasn't been formally answered, and this site is intended
+                        was built to take the first step towards answering that question.</p>
+                    </dd>
+                </div>
+            </div>
+            <div class="row top-buffer">
+                <div class="col-sm-12">
+                    <dt>
+                        <h4><strong>
+                            Why do we associate certain movements with specific sounds music?
+                        </strong></h4>
+                    </dt>
+                    <dd>
+                        <p>Whether trained as dancers or not, melodies, rhythms, and time signatures inspire people of
+                        various backgrounds to move in similar ways. When people move in ways that don't match the music
+                        it looks off to an audience. To demonstrate the point, here's a link to
+                        <a href="https://youtu.be/_gl8ylw4INo" target="_blank">Hayley Westenra's Dark Waltz</a>. Start
+                        the song to playing and then open the
+                        <a href="https://youtu.be/Rh83HT73lmQ" target="_blank">1st Place McMaster Hip-Hop Dance
+                        Competition.</a> While Dark Waltz is playing watch the Hip Hop video with its audio silenced.
+                        The movement of the dancers is not in sync with music. Now compare this to
+                        <a href="https://youtu.be/s77qAEibyDU" target="_blank">dancers dancing a waltz to Dark Waltz.
+                        </a> Now we start to see agreement between the music in the movement.<br>
+                        This begs the question though, what is it about smoother transitions between notes that inspires
+                        us to move more smoothly from one foot to the next, or more specifically, to have a smoother
+                        transfer of weight from one foot to the other through the entirely of the beat, and  why is it
+                        that more rhythmic movement inspires a quicker transition of weight either at the beginning or
+                        end of a beat (closer to the 1 or "ah" when counting 1-e-&-ah)?<br>
+                        Moving forward with this idea, can we extract kinetic information from the music? If so, are is
+                        the movement-to-music relationship cultural, universal, or is it completely subjective and
+                        therefore entirely dependent on what the dancer is taught?
+                        I posit that at it's most restricted, it's cultural and that most people will respond similarly
+                        to any given musical piece (i.e. staccato music will result in staccato movement and legato
+                        music will result in legato movement, even in untrained dancers). If this is the case
+                        then we can develop algorithms to extract this kinetic information from the music.
+                        </p>
+                    </dd>
+                </div>
+            </div>
+        </dl>
+    </div>
+{% endblock content %}
